@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  wms.api:
+    image: ${DOCKER_REGISTRY-}wmsapi
+    build:
+      context: .
+      dockerfile: WMS.Api/Dockerfile
