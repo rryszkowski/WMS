@@ -4,6 +4,7 @@ name: 'wms'
 services:
   wms.api:
     container_name: wms_api
+    hostname: wms
     image: ${DOCKER_REGISTRY-}wmsapi
     build:
       context: .
