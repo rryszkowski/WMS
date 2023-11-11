@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddWriteContext();
+builder.Services.ConfigureWriteDatabase();
 
 var app = builder.Build();
 
