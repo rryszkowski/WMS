@@ -10,6 +10,7 @@ public class WriteContext : DbContext
     {
     }
 
+    public DbSet<Customer> Customers { get; set; } = null!;
     public DbSet<Inventory> Inventories { get; set; } = null!;
     public DbSet<Order> Orders { get; set; } = null!;
     public DbSet<OrderDetails> OrderDetails { get; set; } = null!;
@@ -36,8 +37,8 @@ public class WriteContext : DbContext
             .HasOne(i => i.Warehouse);
 
         modelBuilder
-            .Entity<OrderDetails>()
-            .HasOne(i => i.Order);
+            .Entity<Order>()
+            .HasOne(i => i.OrderDetails);
 
         modelBuilder
             .Entity<OrderDetails>()

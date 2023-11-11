@@ -18,6 +18,7 @@ public static class DatabaseExtensions
 
         services
             .AddDbContext<WriteContext>(options => options.UseNpgsql(connectionString))
+            .AddScoped<ICustomerRepository, CustomerRepository>()
             .AddScoped<IInventoryRepository, InventoryRepository>()
             .AddScoped<IOrderRepository, OrderRepository>()
             .AddScoped<IProductRepository, ProductRepository>()

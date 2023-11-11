@@ -8,6 +8,7 @@ public class UnitOfWork : IUnitOfWork
 
     public UnitOfWork(
         WriteContext context,
+        ICustomerRepository customers,
         IInventoryRepository inventories,
         IOrderRepository orders,
         IProductRepository products,
@@ -16,6 +17,7 @@ public class UnitOfWork : IUnitOfWork
     {
         _context = context;
 
+        Customers = customers;
         Inventories = inventories;
         Orders = orders;
         Products = products;
@@ -23,6 +25,7 @@ public class UnitOfWork : IUnitOfWork
         Warehouses = warehouses;
     }
 
+    public ICustomerRepository Customers { get; }
     public IInventoryRepository Inventories { get; }
     public IOrderRepository Orders { get; }
     public IProductRepository Products { get; }
