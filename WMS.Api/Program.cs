@@ -25,5 +25,6 @@ app.UseHttpsRedirection();
 // Sychnronization: RabbitMQ + MassTransit. Occurs eventual consistency problem.
 // One handler handling multiple events, like ProductHandler having implemented multiple handler interfaces like ICommand<AddProduct>, ICommand<RateProduct> etc.
 app.UseCustomerModule();
+app.UseWarehouseModule();
 
 app.Run();
