@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WMS.Domain\WMS.Domain.csproj" />
+    <ProjectReference Include="..\WMS.Infrastructure\WMS.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Customer\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
 </Project>

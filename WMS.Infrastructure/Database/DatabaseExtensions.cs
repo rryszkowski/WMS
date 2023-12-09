@@ -9,7 +9,7 @@ namespace WMS.Infrastructure.Database;
 
 public static class DatabaseExtensions
 {
-    public static void ConfigureWriteDatabase(this IServiceCollection services)
+    public static void AddWriteDatabase(this IServiceCollection services)
     {
         var configuration = services.BuildServiceProvider()
             .GetRequiredService<IConfiguration>();
@@ -17,7 +17,14 @@ public static class DatabaseExtensions
         var connectionString = configuration.GetConnectionString("WriteDb");
 
         services
-            .AddDbContext<WriteContext>(options => options.UseNpgsql(connectionString))
+            .AddDbContext<WriteContext>(options => options.UseNpgsql(connectionString));
+            
+        services.AddRepositories();
+    }
+
+    private static void AddRepositories(this IServiceCollection services)
+    {
+        services
             .AddScoped<ICustomerRepository, CustomerRepository>()
             .AddScoped<IInventoryRepository, InventoryRepository>()
             .AddScoped<IOrderRepository, OrderRepository>()

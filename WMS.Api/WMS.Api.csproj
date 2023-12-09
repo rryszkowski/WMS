@@ -20,8 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WMS.Infrastructure\WMS.Infrastructure.csproj" />
-    <ProjectReference Include="..\WMS.Presentation\WMS.Presentation.csproj" />
+    <ProjectReference Include="..\WMS.Application\WMS.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Modules\" />
   </ItemGroup>
 
 </Project>
