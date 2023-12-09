@@ -38,7 +38,9 @@ public class WriteContext : DbContext
 
         modelBuilder
             .Entity<Order>()
-            .HasOne(i => i.OrderDetails);
+            .HasMany(o => o.OrderDetails)
+            .WithOne(od => od.Order)
+            .HasForeignKey(od => od.OrderId);
 
         modelBuilder
             .Entity<OrderDetails>()

@@ -12,5 +12,5 @@ public class Order : BaseEntity
     public OrderStatus Status { get; set; }
 
     public Guid OrderDetailsId { get; set; }
-    public OrderDetails OrderDetails { get; set; } = null!;
+    public ICollection<OrderDetails> OrderDetails { get; set; } = null!;
 }
