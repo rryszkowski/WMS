@@ -6,6 +6,7 @@ public static class MainModule
     {
         app.UseCustomerModule()
             .UseInventoryModule()
+            .UseOrderModule()
             .UseProductModule()
             .UseWarehouseModule();
     }

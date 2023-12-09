@@ -3,6 +3,7 @@
 public enum OrderStatus
 {
     Undefined,
+    New,
     Pending,
     Shipped
 }
