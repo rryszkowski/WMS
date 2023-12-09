@@ -11,7 +11,6 @@ public static class WarehouseModule
             {
                 await sender.Send(new AddWarehouseCommand(request));
             })
-            .WithName("Warehouse")
-            .WithOpenApi();
+            .WithTags("Warehouse");
     }
 }

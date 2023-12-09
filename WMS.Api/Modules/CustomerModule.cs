@@ -11,7 +11,6 @@ public static class CustomerModule
             {
                 await sender.Send(new AddCustomerCommand(request));
             })
-            .WithName("Customer")
-            .WithOpenApi();
+            .WithTags("Customer");
     }
 }
