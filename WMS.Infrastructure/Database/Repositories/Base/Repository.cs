@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using WMS.Domain.Base;
 
 namespace WMS.Infrastructure.Database.Repositories.Base;
 
 public class Repository<TEntity> : IRepository<TEntity>
-    where TEntity : class
+    where TEntity : BaseEntity
 {
     private readonly WriteContext _context;
 

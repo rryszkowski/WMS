@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WMS.Domain\WMS.Domain.csproj" />
     <ProjectReference Include="..\WMS.Infrastructure\WMS.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Customer\Queries\" />
+    <Folder Include="Product\Queries\" />
     <Folder Include="Warehouse\Commands\AddWarehouse\" />
     <Folder Include="Warehouse\Queries\" />
   </ItemGroup>

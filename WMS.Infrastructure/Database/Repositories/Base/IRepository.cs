@@ -3,7 +3,7 @@ using WMS.Domain.Base;
 
 namespace WMS.Infrastructure.Database.Repositories.Base;
 
-public interface IRepository<TEntity> where TEntity : class
+public interface IRepository<TEntity> where TEntity : BaseEntity
 {
     ValueTask<TEntity> GetAsync(Guid id);
     Task<List<TEntity>> GetAllAsync();

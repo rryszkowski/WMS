@@ -23,8 +23,4 @@
     <ProjectReference Include="..\WMS.Application\WMS.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Modules\" />
-  </ItemGroup>
-
 </Project>
