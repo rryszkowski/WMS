@@ -12,8 +12,8 @@ using WMS.Infrastructure.Database;
 namespace WMS.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(WriteContext))]
-    [Migration("20231209174651_OrderHasManyOrderDetails")]
-    partial class OrderHasManyOrderDetails
+    [Migration("20231209175440_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,9 +71,6 @@ namespace WMS.Infrastructure.Database.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("CustomerId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("OrderDetailsId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Status")
