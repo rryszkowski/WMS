@@ -3,7 +3,7 @@ using WMS.Domain.Enums;
 
 namespace WMS.Domain.Entities;
 
-public class Shipment : Entity
+public class Shipment : BaseEntity
 {
     public string OrderId { get; set; } = null!;
     public Order Order { get; set; } = null!;

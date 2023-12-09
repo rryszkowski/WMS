@@ -2,7 +2,7 @@
 
 namespace WMS.Domain.Entities;
 
-public class Inventory : Entity
+public class Inventory : BaseEntity
 {
     public string ProductId { get; set; } = null!;
     public Product Product { get; set; } = null!;

@@ -1,6 +1,6 @@
 ﻿namespace WMS.Domain.Base;
 
-public class Entity
+public class BaseEntity
 {
     public string Id { get; set; } = null!;
 }

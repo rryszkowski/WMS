@@ -2,7 +2,7 @@
 
 namespace WMS.Domain.Entities;
 
-public class OrderDetails : Entity
+public class OrderDetails : BaseEntity
 {
     public string ProductId { get; set; } = null!;
     public Product Product { get; set; } = null!;
