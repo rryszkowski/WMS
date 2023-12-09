@@ -7,10 +7,9 @@ public static class WarehouseModule
 {
     public static void UseWarehouseModule(this IEndpointRouteBuilder builder)
     {
-        builder.MapPost("/api/warehouse", async (AddWarehouseRequest request, ISender sender) =>
-            {
-                await sender.Send(new AddWarehouseCommand(request));
-            })
+        builder
+            .MapPost("/api/warehouse", async (AddWarehouseRequest request, ISender sender)
+                => Results.Ok(await sender.Send(new AddWarehouseCommand(request))))
             .WithTags("Warehouse");
     }
 }

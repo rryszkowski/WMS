@@ -2,4 +2,4 @@
 
 namespace WMS.Application.Warehouse.Commands.AddWarehouse;
 
-public record AddWarehouseCommand(AddWarehouseRequest Dto) : IRequest;
+public record AddWarehouseCommand(AddWarehouseRequest Dto) : IRequest<Guid>;

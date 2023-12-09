@@ -3,7 +3,7 @@ using WMS.Infrastructure.Database.UnitOfWork;
 
 namespace WMS.Application.Warehouse.Commands.AddWarehouse;
 
-public class AddWarehouseHandler : IRequestHandler<AddWarehouseCommand>
+public class AddWarehouseHandler : IRequestHandler<AddWarehouseCommand, Guid>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -12,13 +12,16 @@ public class AddWarehouseHandler : IRequestHandler<AddWarehouseCommand>
         _unitOfWork = unitOfWork;
     }
 
-    public async Task Handle(AddWarehouseCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(AddWarehouseCommand request, CancellationToken cancellationToken)
     {
         var dto = request.Dto;
-        
-        await _unitOfWork.Warehouses.AddAsync(
-            new Domain.Entities.Warehouse(dto.Location, dto.Capacity));
+        var warehouse = new Domain.Entities.Warehouse(
+            dto.Location,
+            dto.Capacity);
 
+        await _unitOfWork.Warehouses.AddAsync(warehouse);
         await _unitOfWork.SaveChangesAsync();
+
+        return warehouse.Id;
     }
 }
