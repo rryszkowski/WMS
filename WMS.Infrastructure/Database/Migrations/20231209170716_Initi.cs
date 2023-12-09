@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WMS.Infrastructure.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class Initi : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,16 +55,15 @@ namespace WMS.Infrastructure.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ProductId = table.Column<string>(type: "text", nullable: false),
-                    ProductId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uuid", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderDetails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Products_ProductId1",
-                        column: x => x.ProductId1,
+                        name: "FK_OrderDetails_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -75,24 +74,22 @@ namespace WMS.Infrastructure.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ProductId = table.Column<string>(type: "text", nullable: false),
-                    ProductId1 = table.Column<Guid>(type: "uuid", nullable: false),
-                    WarehouseId = table.Column<string>(type: "text", nullable: false),
-                    WarehouseId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uuid", nullable: false),
+                    WarehouseId = table.Column<Guid>(type: "uuid", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Inventories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Inventories_Products_ProductId1",
-                        column: x => x.ProductId1,
+                        name: "FK_Inventories_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Inventories_Warehouses_WarehouseId1",
-                        column: x => x.WarehouseId1,
+                        name: "FK_Inventories_Warehouses_WarehouseId",
+                        column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -103,24 +100,22 @@ namespace WMS.Infrastructure.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    CustomerId = table.Column<string>(type: "text", nullable: false),
-                    CustomerId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uuid", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
-                    OrderDetailsId = table.Column<string>(type: "text", nullable: false),
-                    OrderDetailsId1 = table.Column<Guid>(type: "uuid", nullable: false)
+                    OrderDetailsId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Customers_CustomerId1",
-                        column: x => x.CustomerId1,
+                        name: "FK_Orders_Customers_CustomerId",
+                        column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_OrderDetails_OrderDetailsId1",
-                        column: x => x.OrderDetailsId1,
+                        name: "FK_Orders_OrderDetails_OrderDetailsId",
+                        column: x => x.OrderDetailsId,
                         principalTable: "OrderDetails",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -131,63 +126,61 @@ namespace WMS.Infrastructure.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    OrderId = table.Column<string>(type: "text", nullable: false),
-                    OrderId1 = table.Column<Guid>(type: "uuid", nullable: false),
-                    WarehouseId = table.Column<string>(type: "text", nullable: false),
-                    WarehouseId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    OrderId = table.Column<Guid>(type: "uuid", nullable: false),
+                    WarehouseId = table.Column<Guid>(type: "uuid", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Shipments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Shipments_Orders_OrderId1",
-                        column: x => x.OrderId1,
+                        name: "FK_Shipments_Orders_OrderId",
+                        column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Shipments_Warehouses_WarehouseId1",
-                        column: x => x.WarehouseId1,
+                        name: "FK_Shipments_Warehouses_WarehouseId",
+                        column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Inventories_ProductId1",
+                name: "IX_Inventories_ProductId",
                 table: "Inventories",
-                column: "ProductId1");
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Inventories_WarehouseId1",
+                name: "IX_Inventories_WarehouseId",
                 table: "Inventories",
-                column: "WarehouseId1");
+                column: "WarehouseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_ProductId1",
+                name: "IX_OrderDetails_ProductId",
                 table: "OrderDetails",
-                column: "ProductId1");
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_CustomerId1",
+                name: "IX_Orders_CustomerId",
                 table: "Orders",
-                column: "CustomerId1");
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_OrderDetailsId1",
+                name: "IX_Orders_OrderDetailsId",
                 table: "Orders",
-                column: "OrderDetailsId1");
+                column: "OrderDetailsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Shipments_OrderId1",
+                name: "IX_Shipments_OrderId",
                 table: "Shipments",
-                column: "OrderId1");
+                column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Shipments_WarehouseId1",
+                name: "IX_Shipments_WarehouseId",
                 table: "Shipments",
-                column: "WarehouseId1");
+                column: "WarehouseId");
         }
 
         /// <inheritdoc />

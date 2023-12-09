@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <Folder Include="Customer\Queries\" />
+    <Folder Include="Inventory\Commands\AddInventory\" />
+    <Folder Include="Inventory\Queries\" />
     <Folder Include="Product\Queries\" />
     <Folder Include="Warehouse\Commands\AddWarehouse\" />
     <Folder Include="Warehouse\Queries\" />
