@@ -5,6 +5,13 @@ namespace WMS.Domain.Entities;
 
 public class Shipment : BaseEntity
 {
+    public Shipment(Guid orderId, Guid warehouseId)
+    {
+        OrderId = orderId;
+        WarehouseId = warehouseId;
+        Status = ShipmentStatus.InTransit;
+    }
+
     public Guid OrderId { get; set; }
     public Order Order { get; set; } = null!;
 

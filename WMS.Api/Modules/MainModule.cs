@@ -8,6 +8,7 @@ public static class MainModule
             .UseInventoryModule()
             .UseOrderModule()
             .UseProductModule()
+            .UseShipmentModule()
             .UseWarehouseModule();
     }
 }
