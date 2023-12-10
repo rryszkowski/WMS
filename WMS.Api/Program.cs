@@ -1,12 +1,13 @@
 using System.Reflection;
 using WMS.Api.Modules;
-using WMS.Infrastructure.Database;
+using WMS.Infrastructure.Database.Read;
 using WMS.Infrastructure.Database.Write;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddReadDatabase();
 builder.Services.AddWriteDatabase();
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(Assembly.Load("WMS.Application")));

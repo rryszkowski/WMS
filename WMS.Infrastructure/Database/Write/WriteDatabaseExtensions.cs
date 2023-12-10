@@ -7,7 +7,7 @@ using WMS.Infrastructure.Database.Write.UnitOfWork;
 
 namespace WMS.Infrastructure.Database.Write;
 
-public static class DatabaseExtensions
+public static class WriteDatabaseExtensions
 {
     public static void AddWriteDatabase(this IServiceCollection services)
     {
