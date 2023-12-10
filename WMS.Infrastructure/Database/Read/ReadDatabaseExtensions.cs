@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Reflection;
+using DbUp;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace WMS.Infrastructure.Database.Read;
@@ -11,5 +13,13 @@ public static class ReadDatabaseExtensions
             .GetRequiredService<IConfiguration>();
 
         var connectionString = configuration.GetConnectionString("ReadDb");
+        
+        var upgrader = DeployChanges.To
+            .MySqlDatabase(connectionString)
+            .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())
+            .LogToConsole()
+            .Build();
+
+        var result = upgrader.PerformUpgrade();
     }
 }
