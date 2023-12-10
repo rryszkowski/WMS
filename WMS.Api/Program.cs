@@ -2,6 +2,7 @@ using System.Reflection;
 using WMS.Api.Modules;
 using WMS.Infrastructure.Database.Read;
 using WMS.Infrastructure.Database.Write;
+using WMS.Infrastructure.Queue;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddReadDatabase();
 builder.Services.AddWriteDatabase();
+builder.Services.AddQueue();
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(Assembly.Load("WMS.Application")));
 
