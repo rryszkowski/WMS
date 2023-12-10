@@ -4,12 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using WMS.Infrastructure.Database;
 using WMS.Infrastructure.Database.Write;
 
 #nullable disable
 
-namespace WMS.Infrastructure.Database.Migrations
+namespace WMS.Infrastructure.Database.Write.Migrations
 {
     [DbContext(typeof(WriteContext))]
     partial class WriteContextModelSnapshot : ModelSnapshot
