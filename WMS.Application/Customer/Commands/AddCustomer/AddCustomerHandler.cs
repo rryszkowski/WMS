@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using WMS.Infrastructure.Database.UnitOfWork;
+using WMS.Infrastructure.Database.Write.UnitOfWork;
 
 namespace WMS.Application.Customer.Commands.AddCustomer;
 

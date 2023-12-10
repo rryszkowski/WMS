@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WMS.Domain.Entities;
 
-namespace WMS.Infrastructure.Database;
+namespace WMS.Infrastructure.Database.Write;
 
 public class WriteContext : DbContext
 {

@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using WMS.Domain.Base;
 
-namespace WMS.Infrastructure.Database.Repositories.Base;
+namespace WMS.Infrastructure.Database.Write.Repositories.Base;
 
 public interface IRepository<TEntity> where TEntity : BaseEntity
 {

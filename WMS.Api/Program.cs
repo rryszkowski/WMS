@@ -1,6 +1,7 @@
 using System.Reflection;
 using WMS.Api.Modules;
 using WMS.Infrastructure.Database;
+using WMS.Infrastructure.Database.Write;
 
 var builder = WebApplication.CreateBuilder(args);
 

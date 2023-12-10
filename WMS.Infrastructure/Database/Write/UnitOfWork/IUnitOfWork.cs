@@ -1,6 +1,6 @@
-﻿using WMS.Infrastructure.Database.Repositories.Interfaces;
+﻿using WMS.Infrastructure.Database.Write.Repositories.Interfaces;
 
-namespace WMS.Infrastructure.Database.UnitOfWork;
+namespace WMS.Infrastructure.Database.Write.UnitOfWork;
 
 public interface IUnitOfWork : IDisposable
 {

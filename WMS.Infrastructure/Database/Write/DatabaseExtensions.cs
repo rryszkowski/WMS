@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WMS.Infrastructure.Database.Repositories;
-using WMS.Infrastructure.Database.Repositories.Interfaces;
-using WMS.Infrastructure.Database.UnitOfWork;
+using WMS.Infrastructure.Database.Write.Repositories;
+using WMS.Infrastructure.Database.Write.Repositories.Interfaces;
+using WMS.Infrastructure.Database.Write.UnitOfWork;
 
-namespace WMS.Infrastructure.Database;
+namespace WMS.Infrastructure.Database.Write;
 
 public static class DatabaseExtensions
 {
@@ -18,7 +18,12 @@ public static class DatabaseExtensions
 
         services
             .AddDbContext<WriteContext>(options => options.UseNpgsql(connectionString));
-            
+
+        var writeContext = services.BuildServiceProvider()
+            .GetRequiredService<WriteContext>();
+
+        writeContext.Database.Migrate();
+
         services.AddRepositories();
     }
 

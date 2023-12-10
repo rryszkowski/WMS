@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using WMS.Domain.Enums;
-using WMS.Infrastructure.Database.UnitOfWork;
+using WMS.Infrastructure.Database.Write.UnitOfWork;
 
 namespace WMS.Application.Shipment.Commands.ShipOrder;
 

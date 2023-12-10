@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using WMS.Application.Order.Commands.AddDetailsToOrder;
 using WMS.Domain.Entities;
-using WMS.Infrastructure.Database.UnitOfWork;
+using WMS.Infrastructure.Database.Write.UnitOfWork;
 
 namespace WMS.Application.Order.Commands.AddOrderDetails;
 

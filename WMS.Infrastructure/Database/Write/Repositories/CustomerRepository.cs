@@ -1,8 +1,8 @@
 ﻿using WMS.Domain.Entities;
-using WMS.Infrastructure.Database.Repositories.Base;
-using WMS.Infrastructure.Database.Repositories.Interfaces;
+using WMS.Infrastructure.Database.Write.Repositories.Base;
+using WMS.Infrastructure.Database.Write.Repositories.Interfaces;
 
-namespace WMS.Infrastructure.Database.Repositories;
+namespace WMS.Infrastructure.Database.Write.Repositories;
 
 public class CustomerRepository : Repository<Customer>, ICustomerRepository
 {
