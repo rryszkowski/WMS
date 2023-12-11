@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Database\Read\Scripts\Script0001_CreateTablesAndViews.sql" />
+    <None Remove="Database\Read\Scripts\Script0001_CreateTables.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Database\Read\Scripts\Script0001_CreateTablesAndViews.sql" />
+    <EmbeddedResource Include="Database\Read\Scripts\Script0001_CreateTables.sql" />
   </ItemGroup>
 
   <ItemGroup>
