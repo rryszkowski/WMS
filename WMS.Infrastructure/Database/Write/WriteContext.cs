@@ -34,6 +34,11 @@ public class WriteContext : DbContext
 
         modelBuilder
             .Entity<Shipment>()
+            .Property(s => s.Status)
+            .HasConversion<string>();
+
+        modelBuilder
+            .Entity<Shipment>()
             .HasOne(i => i.Warehouse);
 
         modelBuilder
@@ -41,6 +46,11 @@ public class WriteContext : DbContext
             .HasMany(o => o.OrderDetails)
             .WithOne(od => od.Order)
             .HasForeignKey(od => od.OrderId);
+
+        modelBuilder
+            .Entity<Order>()
+            .Property(o => o.Status)
+            .HasConversion<string>();
 
         modelBuilder
             .Entity<OrderDetails>()

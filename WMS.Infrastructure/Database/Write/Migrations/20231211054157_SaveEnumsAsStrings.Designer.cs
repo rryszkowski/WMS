@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WMS.Infrastructure.Database.Write;
@@ -11,9 +12,11 @@ using WMS.Infrastructure.Database.Write;
 namespace WMS.Infrastructure.Database.Write.Migrations
 {
     [DbContext(typeof(WriteContext))]
-    partial class WriteContextModelSnapshot : ModelSnapshot
+    [Migration("20231211054157_SaveEnumsAsStrings")]
+    partial class SaveEnumsAsStrings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

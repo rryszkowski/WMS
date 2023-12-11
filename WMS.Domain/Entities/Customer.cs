@@ -9,5 +9,5 @@ public class Customer : BaseEntity
         Name = name;
     }
 
-    public string Name { get; set; } = null!;
+    public string Name { get; set; }
 }

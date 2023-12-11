@@ -10,6 +10,7 @@ public static class MassTransitExtensions
     {
         services.AddMassTransit(x =>
         {
+            x.SetKebabCaseEndpointNameFormatter();
             x.AddConsumers(Assembly.Load("WMS.Application"));
 
             x.UsingRabbitMq((ctx, cfg) =>
@@ -19,6 +20,8 @@ public static class MassTransitExtensions
                     h.Username("admin");
                     h.Password("Swordfish123");
                 });
+
+                cfg.ConfigureEndpoints(ctx);
             });
         });
     }
