@@ -4,7 +4,17 @@ namespace WMS.Domain.Entities;
 
 public class Product : BaseEntity
 {
-    public string Name { get; set; } = null!;
-    public string Category { get; set; } = null!;
-    public string Manufacturer { get; set; } = null!;
+    public Product(
+        string name, 
+        string category, 
+        string manufacturer)
+    {
+        Name = name;
+        Category = category;
+        Manufacturer = manufacturer;
+    }
+
+    public string Name { get; set; }
+    public string Category { get; set; }
+    public string Manufacturer { get; set; }
 }

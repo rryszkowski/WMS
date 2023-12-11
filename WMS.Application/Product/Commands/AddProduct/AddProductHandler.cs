@@ -15,12 +15,10 @@ public class AddProductHandler : IRequestHandler<AddProductCommand, Guid>
     public async  Task<Guid> Handle(AddProductCommand request, CancellationToken cancellationToken)
     {
         var dto = request.Dto;
-        var product = new Domain.Entities.Product
-        {
-            Category = dto.Category,
-            Manufacturer = dto.Manufacturer,
-            Name = dto.Name
-        };
+        var product = new Domain.Entities.Product(
+            dto.Name, 
+            dto.Category, 
+            dto.Manufacturer);
 
         await _unitOfWork.Products.AddAsync(product);
         await _unitOfWork.SaveChangesAsync();
