@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.24" />
     <PackageReference Include="dbup" Version="5.0.37" />
     <PackageReference Include="dbup-mysql" Version="5.0.37" />
     <PackageReference Include="MassTransit" Version="8.1.2" />
@@ -28,6 +29,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MySqlConnector" Version="2.3.1" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
   </ItemGroup>
 
