@@ -1,17 +1,20 @@
-﻿using MediatR;
+﻿using MassTransit;
+using MediatR;
 using WMS.Application.Order.Commands.AddDetailsToOrder;
 using WMS.Domain.Entities;
 using WMS.Infrastructure.Database.Write.UnitOfWork;
 
 namespace WMS.Application.Order.Commands.AddOrderDetails;
 
-public class AddOrderDetailsHandler : IRequestHandler<AddDetailsToOrderCommand, Guid>
+public class AddDetailsToOrderHandler : IRequestHandler<AddDetailsToOrderCommand, Guid>
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IBus _bus;
 
-    public AddOrderDetailsHandler(IUnitOfWork unitOfWork)
+    public AddDetailsToOrderHandler(IUnitOfWork unitOfWork, IBus bus)
     {
         _unitOfWork = unitOfWork;
+        _bus = bus;
     }
 
     public async  Task<Guid> Handle(AddDetailsToOrderCommand request, CancellationToken cancellationToken)
@@ -37,6 +40,13 @@ public class AddOrderDetailsHandler : IRequestHandler<AddDetailsToOrderCommand, 
         order.OrderDetails.Add(orderDetails);
 
         await _unitOfWork.SaveChangesAsync();
+
+        await _bus.Publish(
+            new AddDetailsToOrderMessage(
+                orderDetails.Id,
+                orderDetails.OrderId,
+                orderDetails.ProductId,
+                orderDetails.Quantity), cancellationToken);
 
         return orderDetails.Id;
     }
