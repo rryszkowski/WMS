@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using MassTransit;
+using MediatR;
 using WMS.Infrastructure.Database.Write.UnitOfWork;
 
 namespace WMS.Application.Warehouse.Commands.AddWarehouse;
@@ -6,10 +7,12 @@ namespace WMS.Application.Warehouse.Commands.AddWarehouse;
 public class AddWarehouseHandler : IRequestHandler<AddWarehouseCommand, Guid>
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IBus _bus;
 
-    public AddWarehouseHandler(IUnitOfWork unitOfWork)
+    public AddWarehouseHandler(IUnitOfWork unitOfWork, IBus bus)
     {
         _unitOfWork = unitOfWork;
+        _bus = bus;
     }
 
     public async Task<Guid> Handle(AddWarehouseCommand request, CancellationToken cancellationToken)
@@ -21,6 +24,12 @@ public class AddWarehouseHandler : IRequestHandler<AddWarehouseCommand, Guid>
 
         await _unitOfWork.Warehouses.AddAsync(warehouse);
         await _unitOfWork.SaveChangesAsync();
+
+        await _bus.Publish(new AddWarehouseMessage(
+                warehouse.Id,
+                warehouse.Location,
+                warehouse.Capacity),
+            cancellationToken);
 
         return warehouse.Id;
     }
