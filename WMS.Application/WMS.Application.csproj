@@ -17,7 +17,6 @@
     <Folder Include="Inventory\Queries\" />
     <Folder Include="Order\Queries\" />
     <Folder Include="Product\Queries\" />
-    <Folder Include="Shipment\Commands\ShipOrder\" />
     <Folder Include="Shipment\Queries\" />
     <Folder Include="Warehouse\Commands\AddWarehouse\" />
     <Folder Include="Warehouse\Queries\" />

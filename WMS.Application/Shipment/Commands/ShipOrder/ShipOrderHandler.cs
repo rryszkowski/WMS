@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using MassTransit;
+using MediatR;
 using WMS.Domain.Enums;
 using WMS.Infrastructure.Database.Write.UnitOfWork;
 
@@ -7,10 +8,12 @@ namespace WMS.Application.Shipment.Commands.ShipOrder;
 public class ShipOrderHandler : IRequestHandler<ShipOrderCommand, Guid>
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IBus _bus;
 
-    public ShipOrderHandler(IUnitOfWork unitOfWork)
+    public ShipOrderHandler(IUnitOfWork unitOfWork, IBus bus)
     {
         _unitOfWork = unitOfWork;
+        _bus = bus;
     }
 
     public async Task<Guid> Handle(ShipOrderCommand request, CancellationToken cancellationToken)
@@ -37,6 +40,14 @@ public class ShipOrderHandler : IRequestHandler<ShipOrderCommand, Guid>
 
         await _unitOfWork.Shipments.AddAsync(shipment);
         await _unitOfWork.SaveChangesAsync();
+
+        await _bus.Publish(
+            new ShipOrderMessage(
+                shipment.Id,
+                shipment.OrderId,
+                shipment.WarehouseId,
+                $"{shipment.Status}"),
+            cancellationToken);
 
         return shipment.Id;
     }
