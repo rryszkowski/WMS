@@ -9,14 +9,15 @@
   <ItemGroup>
     <None Remove="Database\Read\Scripts\Script0001_CreateTables.sql" />
     <None Remove="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
+    <None Remove="Database\Read\Scripts\Script0003_AddTriggersForProductSummary.sql" />
+    <None Remove="Database\Read\Scripts\Script0004_AddWarehouseSummaryTable.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Database\Read\Scripts\Script0001_CreateTables.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0001_CreateTables.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0003_AddTriggersForProductSummary.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0004_AddWarehouseSummaryTable.sql" />
   </ItemGroup>
 
   <ItemGroup>
