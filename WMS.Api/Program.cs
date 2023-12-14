@@ -24,10 +24,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Write: PostgresSQL + EF Core
-// Read: MySQL + Dapper
-// Sychnronization: RabbitMQ + MassTransit. Occurs eventual consistency problem.
-// One handler handling multiple events, like ProductHandler having implemented multiple handler interfaces like ICommand<AddProduct>, ICommand<RateProduct> etc.
+// One handler handling multiple events, like ProductHandler having implemented
+// multiple handler interfaces like ICommand<AddProduct>, ICommand<RateProduct> etc.
 app.UseModules();
 
 app.Run();

@@ -26,5 +26,10 @@ public static class ReadDatabaseExtensions
             .Build();
 
         var result = upgrader.PerformUpgrade();
+
+        if (!result.Successful)
+        {
+            throw new InvalidOperationException("Failed to update Read Database");
+        }
     }
 }

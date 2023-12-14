@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <None Remove="Database\Read\Scripts\Script0001_CreateTables.sql" />
+    <None Remove="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
   </ItemGroup>
 
   <ItemGroup>
