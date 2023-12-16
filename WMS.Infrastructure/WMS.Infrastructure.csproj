@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -11,6 +11,11 @@
     <None Remove="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
     <None Remove="Database\Read\Scripts\Script0003_AddTriggersForProductSummary.sql" />
     <None Remove="Database\Read\Scripts\Script0004_AddWarehouseSummaryTable.sql" />
+    <None Remove="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
   </ItemGroup>
 
   <ItemGroup>
