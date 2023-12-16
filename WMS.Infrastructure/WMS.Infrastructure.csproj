@@ -12,10 +12,7 @@
     <None Remove="Database\Read\Scripts\Script0003_AddTriggersForProductSummary.sql" />
     <None Remove="Database\Read\Scripts\Script0004_AddWarehouseSummaryTable.sql" />
     <None Remove="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
+    <None Remove="Database\Read\Scripts\Script0006_CreateInventoryView.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +20,8 @@
 	<EmbeddedResource Include="Database\Read\Scripts\Script0002_AddProductSummaryTable.sql" />
 	<EmbeddedResource Include="Database\Read\Scripts\Script0003_AddTriggersForProductSummary.sql" />
 	<EmbeddedResource Include="Database\Read\Scripts\Script0004_AddWarehouseSummaryTable.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0006_CreateInventoryView.sql" />
   </ItemGroup>
 
   <ItemGroup>
