@@ -14,6 +14,7 @@
     <None Remove="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
     <None Remove="Database\Read\Scripts\Script0006_CreateInventoryView.sql" />
     <None Remove="Database\Read\Scripts\Script0007_CreateOrderView.sql" />
+    <None Remove="Database\Read\Scripts\Script0008_CreateShipmentView.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
 	<EmbeddedResource Include="Database\Read\Scripts\Script0005_AddTriggersForWarehouseSummary.sql" />
 	<EmbeddedResource Include="Database\Read\Scripts\Script0006_CreateInventoryView.sql" />
 	<EmbeddedResource Include="Database\Read\Scripts\Script0007_CreateOrderView.sql" />
+	<EmbeddedResource Include="Database\Read\Scripts\Script0008_CreateShipmentView.sql" />
   </ItemGroup>
 
   <ItemGroup>
