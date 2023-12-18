@@ -15,7 +15,6 @@
     <Folder Include="Customer\Queries\" />
     <Folder Include="Inventory\Commands\AddInventory\" />
     <Folder Include="Warehouse\Commands\AddWarehouse\" />
-    <Folder Include="Warehouse\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
