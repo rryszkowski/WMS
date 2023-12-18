@@ -2,4 +2,4 @@
 
 namespace WMS.Application.Inventory.Queries;
 
-public record GetInventorySummaryQuery() : IRequest<IEnumerable<InventorySummaryResponse>>;
+public sealed record GetInventorySummaryQuery() : IRequest<IEnumerable<InventorySummaryResponse>>;
